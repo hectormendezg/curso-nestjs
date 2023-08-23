@@ -16,9 +16,16 @@ yarn install
 ```
 npm i -g @nestjs/cli
 ```
+
 4. Tener una base de datos Mongo
+
+5. Reconstruir la base de datos con la semilla
+
+```
+http://localhost:4000/api/v2/seed
+```
 
 ## Stack usado
 
-* MongoDB 
-* Nesjs
+- MongoDB
+- Nesjs

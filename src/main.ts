@@ -6,7 +6,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api/v2'); //==> Añade el prefijo a la Api
 
-  app.useGlobalPipes(new ValidationPipe({ forbidNonWhitelisted: true })); //=> Validaciones Globales
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
+    }),
+  ); //=> Validaciones Globales
   await app.listen(4000);
 }
 bootstrap();
